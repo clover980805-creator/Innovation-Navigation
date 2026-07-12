@@ -10,12 +10,15 @@
 	--soft: rgba(239, 245, 255, 0.52);
 	--blue: #48b8ff;
 	--cyan: #56f0ff;
+	--indigo: #8f94ff;
+	--violet: #bc78ff;
+	--ice: #8bdfff;
 	--pink: #ff65cf;
 	--green: #68f0aa;
 	--amber: #ffb35f;
-	--panel-deep: rgba(3, 8, 20, 0.62);
-	--panel-raised: rgba(15, 29, 59, 0.7);
-	--panel-edge: rgba(185, 219, 255, 0.3);
+	--panel-deep: rgba(4, 10, 29, 0.3);
+	--panel-raised: rgba(24, 39, 79, 0.43);
+	--panel-edge: rgba(219, 239, 255, 0.38);
 	--panel-edge-active: rgba(222, 242, 255, 0.82);
 	--panel-copy: rgba(238, 247, 255, 0.78);
 	--font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -355,10 +358,10 @@ img {
 	border: 1px solid var(--panel-edge);
 	border-radius: 18px;
 	background:
-		linear-gradient(155deg, color-mix(in srgb, var(--accent), transparent 86%), transparent 48%),
+		linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.04) 34%, color-mix(in srgb, var(--accent), transparent 72%)),
 		linear-gradient(180deg, var(--panel-raised), var(--panel-deep));
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), inset 0 -1px 0 rgba(8, 14, 35, 0.42);
-	backdrop-filter: blur(16px) saturate(148%);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42), inset 0 -1px 0 rgba(8, 14, 35, 0.24);
+	backdrop-filter: blur(24px) saturate(175%) brightness(1.06);
 	overflow: hidden;
 	transform: translateZ(0);
 	transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 260ms ease, box-shadow 260ms ease, background 260ms ease;
@@ -387,15 +390,15 @@ button.service-card {
 
 .service-card::before {
 	background:
-		linear-gradient(120deg, rgba(255, 255, 255, 0.16), transparent 30%, transparent 68%, color-mix(in srgb, var(--accent), transparent 72%));
-	opacity: 0.72;
+		linear-gradient(118deg, rgba(255, 255, 255, 0.3), transparent 22%, transparent 68%, color-mix(in srgb, var(--accent), transparent 56%));
+	opacity: 0.56;
 }
 
 .service-card::after {
 	inset: 1px;
 	border-radius: 17px;
-	background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 34%, rgba(4, 10, 27, 0.12));
-	opacity: 0.5;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), transparent 28%, rgba(4, 10, 27, 0.06));
+	opacity: 0.62;
 }
 
 .service-card:hover,
@@ -407,8 +410,8 @@ button.service-card {
 		0 0 0 3px color-mix(in srgb, var(--accent), transparent 76%),
 		inset 0 1px 0 rgba(255, 255, 255, 0.28);
 	background:
-		linear-gradient(155deg, color-mix(in srgb, var(--accent), transparent 76%), transparent 50%),
-		linear-gradient(180deg, rgba(20, 38, 76, 0.78), rgba(4, 10, 26, 0.68));
+		linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.06) 34%, color-mix(in srgb, var(--accent), transparent 58%)),
+		linear-gradient(180deg, rgba(24, 43, 86, 0.54), rgba(4, 10, 26, 0.36));
 	transform: translateY(-6px) scale(1.018);
 	outline: none;
 }
@@ -508,7 +511,39 @@ button.service-card {
 	border-radius: 23%;
 	outline: 1px solid rgba(213, 239, 255, 0.18);
 	outline-offset: -1px;
-	box-shadow: 0 10px 18px rgba(0, 0, 0, 0.36);
+	box-shadow: 0 8px 14px rgba(0, 0, 0, 0.32);
+}
+
+.service-card:nth-child(1) {
+	--accent: var(--cyan);
+}
+
+.service-card:nth-child(2) {
+	--accent: var(--indigo);
+}
+
+.service-card:nth-child(3) {
+	--accent: var(--violet);
+}
+
+.service-card:nth-child(4) {
+	--accent: var(--ice);
+}
+
+.service-card:nth-child(1) .service-art img {
+	filter: hue-rotate(-8deg) saturate(1.16);
+}
+
+.service-card:nth-child(2) .service-art img {
+	filter: hue-rotate(32deg) saturate(1.28);
+}
+
+.service-card:nth-child(3) .service-art img {
+	filter: hue-rotate(72deg) saturate(1.24);
+}
+
+.service-card:nth-child(4) .service-art img {
+	filter: hue-rotate(-28deg) saturate(1.18) brightness(1.08);
 }
 
 .service-copy {
@@ -696,9 +731,12 @@ button.service-card {
 		padding-inline: 4px;
 	}
 
-	.hero h1 {
-		font-size: clamp(25px, 8.5vw, 38px);
-		white-space: nowrap;
+		.hero h1 {
+			max-inline-size: 100%;
+			font-size: clamp(24px, 8vw, 36px);
+			white-space: normal;
+			overflow-wrap: anywhere;
+			text-wrap: balance;
 	}
 
 	.hero-description {
