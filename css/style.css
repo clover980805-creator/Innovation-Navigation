@@ -660,6 +660,14 @@ button.service-card {
 	letter-spacing: 0;
 }
 
+.footer-author {
+	margin: 8px auto 0;
+	color: rgba(239, 245, 255, 0.58);
+	font-size: 12px;
+	line-height: 1.4;
+	text-align: center;
+}
+
 @media (max-width: 1060px) {
 	body {
 		background: #02050d;
@@ -847,6 +855,11 @@ button.service-card {
 
 	.footer-separator {
 		display: none;
+	}
+
+	.footer-author {
+		padding-inline: 8px;
+		font-size: 11px;
 	}
 }
 
