@@ -661,11 +661,10 @@ button.service-card {
 }
 
 .footer-author {
-	margin: 8px auto 0;
 	color: rgba(239, 245, 255, 0.58);
 	font-size: 12px;
 	line-height: 1.4;
-	text-align: center;
+	white-space: normal;
 }
 
 @media (max-width: 1060px) {
@@ -858,7 +857,6 @@ button.service-card {
 	}
 
 	.footer-author {
-		padding-inline: 8px;
 		font-size: 11px;
 	}
 }

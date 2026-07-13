@@ -1,6 +1,11 @@
 # Innovation Navigation
 
-创新产品数字化导航平台，为创新产品提供便捷、高效的数字化支持。
+面向HBU创新Innovation，提供高效、便捷的数字化工具支持
+
+## 分享信息
+
+- 标题：Innovation Navigation｜创新产品数字化导航平台
+- 描述：面向HBU创新Innovation，提供高效、便捷的数字化工具支持
 
 ## 当前产品
 
