@@ -914,3 +914,137 @@ button.service-card {
 		animation-iteration-count: 1 !important;
 	}
 }
+
+/* V0.2.1 · stronger liquid glass override */
+.services { gap: clamp(12px, 1.15vw, 20px); }
+.service-card {
+	--accent: var(--accent-cyan);
+	min-height: clamp(246px, 18vw, 300px);
+	align-items: center;
+	justify-content: flex-end;
+	border: 1px solid var(--glass-edge);
+	border-radius: var(--radius-card);
+	background: linear-gradient(145deg, color-mix(in oklch, var(--glass-base), var(--accent) 13%), var(--glass-deep));
+	box-shadow: inset 0 1px 0 var(--glass-refract), inset 0 -1px 0 color-mix(in oklch, var(--accent), transparent 72%), 0 12px 28px var(--glass-shadow);
+	backdrop-filter: blur(20px) saturate(150%);
+	-webkit-backdrop-filter: blur(20px) saturate(150%);
+	transition: transform var(--dur-medium) var(--ease-out), border-color var(--dur-short) var(--ease-out), filter var(--dur-short) var(--ease-out);
+}
+.service-card::before { background: linear-gradient(126deg, var(--glass-refract), transparent 18%, transparent 58%, color-mix(in oklch, var(--accent), transparent 34%)); opacity: .74; }
+.service-card::after { inset: 1px; border-radius: calc(var(--radius-card) - 1px); background: radial-gradient(circle at 18% 8%, var(--glass-refract), transparent 20%), radial-gradient(circle at 88% 74%, color-mix(in oklch, var(--accent), transparent 34%), transparent 38%); opacity: .78; }
+.service-card:hover, .service-card:focus-visible, .service-card.is-key-focused { transform: translateY(-4px); border-color: var(--glass-refract); filter: brightness(1.08); outline: 3px solid var(--focus-ring); outline-offset: 3px; }
+.service-art { top: clamp(48px, 4.4vw, 68px); width: clamp(104px, 8.4vw, 142px); height: clamp(104px, 8.4vw, 142px); padding: 10px; border: 1px solid var(--glass-refract); border-radius: var(--radius-vessel); background: color-mix(in oklch, var(--glass-base), var(--accent) 20%); box-shadow: inset 0 1px 0 var(--glass-refract), 0 8px 18px color-mix(in oklch, var(--accent), transparent 76%); backdrop-filter: blur(16px) saturate(165%); }
+.service-art img { border: 0; border-radius: 10px; outline: 0; box-shadow: none; }
+.service-card:hover .service-art, .service-card:focus-visible .service-art, .service-card.is-key-focused .service-art { transform: translateX(-50%) translateY(-4px); filter: none; }
+.service-copy { width: 100%; align-self: end; padding: 0 4px 10px; text-align: center; text-shadow: none; }
+.service-copy strong { color: var(--ink-strong); font-size: clamp(15px, 1.2vw, 18px); letter-spacing: .01em; }
+.service-copy small { color: var(--ink-muted); line-height: 1.45; }
+.service-arrow { right: 14px; bottom: 14px; border-color: var(--glass-edge); background: color-mix(in oklch, var(--glass-base), transparent 24%); }
+.service-card:nth-child(1) { --accent: var(--accent-cyan); }
+.service-card:nth-child(2) { --accent: var(--accent-indigo); }
+.service-card:nth-child(3) { --accent: var(--accent-violet); }
+.service-card:nth-child(4) { --accent: var(--accent-ice); }
+.service-card:nth-child(5) { --accent: var(--accent-teal); }
+.service-card:nth-child(6) { --accent: var(--accent-green); }
+@media (max-width: 1060px) { .services { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 720px) { .services { grid-template-columns: repeat(var(--grid-mobile-columns), minmax(0, 1fr)); gap: 7px; } .service-card { min-height: clamp(166px, 50vw, 210px); padding: 8px; } .service-art { top: 26px; width: clamp(52px, 16vw, 72px); height: clamp(52px, 16vw, 72px); padding: 5px; border-radius: 12px; } .service-art img { border-radius: 8px; } .service-copy { padding: 0 0 5px; gap: 3px; } .service-copy strong { font-size: clamp(10px, 3vw, 13px); line-height: 1.2; } .service-copy small { display: none; } .service-badge, .service-status { font-size: 8px; } .service-arrow { display: none; } }
+@media (max-width: 360px) { .services { grid-template-columns: repeat(var(--grid-mobile-columns), minmax(0, 1fr)); gap: 5px; } .service-card { min-height: 154px; padding: 6px; } .service-art { top: 24px; } }
+@media (orientation: landscape) and (max-height: 540px) and (max-width: 950px) { .topbar { padding-bottom: 4px; } .hero { margin: 10px 0; } .service-card { min-height: 172px; } }
+
+/* V0.2.1 correction: the card is the only glass surface; the app mark stays bare. */
+.service-card:hover, .service-card:focus-visible, .service-card.is-key-focused {
+	border-color: color-mix(in oklch, var(--glass-refract), transparent 18%);
+	box-shadow: inset 0 1px 0 var(--glass-refract), inset 0 -1px 0 color-mix(in oklch, var(--accent), transparent 72%), 0 14px 28px var(--glass-shadow);
+	outline: 0;
+}
+.service-art {
+	padding: 0;
+	border: 0;
+	border-radius: 26%;
+	background: none;
+	box-shadow: none;
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+	overflow: hidden;
+}
+.service-art img {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	border-radius: 22%;
+	object-fit: cover;
+}
+@media (max-width: 720px) { .service-art { padding: 0; border: 0; background: none; } .service-art img { width: 100%; height: 100%; margin: 0; } }
+
+/* V0.2.1 layout and glass polish: keep copy stable while letting the card read as transparent glass. */
+.service-card {
+	background:
+		linear-gradient(135deg, color-mix(in oklch, var(--accent) 16%, transparent), transparent 52%),
+		color-mix(in oklch, var(--glass-deep) 58%, transparent);
+	background-blend-mode: screen, normal;
+	backdrop-filter: blur(24px) saturate(175%);
+	-webkit-backdrop-filter: blur(24px) saturate(175%);
+	box-shadow: inset 0 1px 0 color-mix(in oklch, var(--glass-refract) 78%, transparent), inset 0 -1px 0 color-mix(in oklch, var(--accent) 26%, transparent), 0 8px 18px color-mix(in oklch, var(--glass-shadow) 70%, transparent);
+}
+.service-copy,
+.service-copy strong,
+.service-copy small,
+.section-heading,
+.hero h1,
+.hero p { min-width: 0; }
+.service-copy strong,
+.section-heading,
+.hero h1 { text-wrap: balance; overflow-wrap: anywhere; }
+.service-copy small { text-wrap: pretty; overflow-wrap: anywhere; }
+
+@media (max-width: 720px) {
+	.service-card {
+		display: grid;
+		grid-template-rows: auto 1fr auto;
+		align-items: center;
+		min-height: clamp(174px, 51vw, 214px);
+		padding: 8px;
+	}
+	.service-badge,
+	.service-status {
+		position: static;
+		z-index: 3;
+		max-width: 48%;
+		min-width: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.service-badge { grid-row: 1; justify-self: start; }
+	.service-status { grid-row: 1; justify-self: end; }
+	.service-art {
+		grid-row: 2;
+		position: relative;
+		top: auto;
+		left: auto;
+		justify-self: center;
+		align-self: center;
+		transform: none;
+		width: clamp(56px, 16vw, 74px);
+		height: clamp(56px, 16vw, 74px);
+	}
+	.service-copy {
+		grid-row: 3;
+		align-self: end;
+		padding: 0 1px 2px;
+	}
+	.service-copy strong {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		overflow: hidden;
+		font-size: clamp(10px, 3.1vw, 13px);
+		line-height: 1.16;
+	}
+}
+
+@media (max-width: 360px) {
+	.service-card { min-height: 164px; padding: 6px; }
+	.service-badge, .service-status { font-size: 7px; padding-inline: 5px; }
+	.service-art { width: 56px; height: 56px; }
+}

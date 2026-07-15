@@ -1,0 +1,32 @@
+/* V0.2.1 · iOS-inspired liquid-glass tokens */
+:root {
+	--ink-strong: oklch(0.97 0.012 255);
+	--ink-muted: oklch(0.88 0.018 255 / 0.86);
+	--ink-soft: oklch(0.78 0.018 255 / 0.82);
+	--glass-base: oklch(0.22 0.052 258 / 0.5);
+	--glass-deep: oklch(0.14 0.048 258 / 0.66);
+	--glass-refract: oklch(0.98 0.012 255 / 0.74);
+	--glass-edge: oklch(0.94 0.035 251 / 0.42);
+	--glass-shadow: oklch(0.06 0.04 263 / 0.44);
+	--focus-ring: oklch(0.9 0.16 216);
+	--accent-cyan: oklch(0.88 0.16 210);
+	--accent-indigo: oklch(0.79 0.15 285);
+	--accent-violet: oklch(0.77 0.17 315);
+	--accent-ice: oklch(0.91 0.1 222);
+	--accent-teal: oklch(0.85 0.13 180);
+	--accent-green: oklch(0.86 0.14 151);
+	--space-2xs: 0.25rem;
+	--space-xs: 0.5rem;
+	--space-sm: 0.75rem;
+	--space-md: 1rem;
+	--space-lg: 1.5rem;
+	--space-xl: 2rem;
+	--radius-card: 16px;
+	--radius-vessel: 16px;
+	--ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+	--ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+	--ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+	--dur-short: 180ms;
+	--dur-medium: 280ms;
+	--grid-mobile-columns: 3;
+}
