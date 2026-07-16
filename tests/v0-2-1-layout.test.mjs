@@ -50,3 +50,19 @@ test("responsive typography and glass finish have explicit stability safeguards"
 	assert.match(correction, /backdrop-filter:\s*blur\([^)]*\)\s+saturate\(/);
 	assert.match(correction, /background-blend-mode:\s*screen/);
 });
+
+test("V0.2.2 uses two mobile columns with card-only press feedback", () => {
+	const correction = css.slice(css.lastIndexOf("/* V0.2.2 mobile layout correction"));
+	assert.match(correction, /grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)/);
+	assert.match(correction, /\.service-card:active\s*\{[^}]*transform:\s*scale\(0\.96\)/);
+	assert.match(correction, /\.service-card:active\s+\.service-art\s*\{[^}]*transform:\s*none/);
+	assert.match(correction, /@media\s*\(max-width:\s*360px\)[\s\S]*grid-template-columns:\s*repeat\(2,/);
+});
+
+test("V0.2.2 reference-layout refinement anchors mobile card content without icon drift", () => {
+	const refinement = css.slice(css.lastIndexOf("/* V0.2.2 reference-layout refinement"));
+	assert.match(refinement, /\.service-badge,\s*\.service-status\s*\{[\s\S]*position:\s*absolute/);
+	assert.match(refinement, /\.service-art\s*\{[\s\S]*inset-inline:\s*0[\s\S]*margin-inline:\s*auto[\s\S]*transform:\s*none/);
+	assert.match(refinement, /\.service-copy\s*\{[\s\S]*text-align:\s*left/);
+	assert.match(refinement, /color-mix\(in oklch, var\(--glass-deep\) 86%, transparent\)/);
+});
