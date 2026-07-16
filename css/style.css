@@ -1048,3 +1048,138 @@ button.service-card {
 	.service-badge, .service-status { font-size: 7px; padding-inline: 5px; }
 	.service-art { width: 56px; height: 56px; }
 }
+
+/* V0.2.2 mobile layout correction: two stable columns and card-only press feedback. */
+@media (max-width: 720px) {
+	.services {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 8px;
+	}
+	.service-card {
+		min-height: clamp(228px, 64vw, 292px);
+		padding: 10px;
+	}
+	.service-art {
+		width: clamp(78px, 25vw, 104px);
+		height: clamp(78px, 25vw, 104px);
+		transform: none;
+	}
+	.service-copy strong {
+		font-size: clamp(13px, 3.8vw, 16px);
+		line-height: 1.16;
+	}
+	.service-card:active { transform: scale(0.96); }
+	.service-card:active .service-art { transform: none; }
+	.service-card:hover .service-art,
+	.service-card:focus-visible .service-art,
+	.service-card.is-key-focused .service-art {
+		transform: none;
+		filter: none;
+	}
+}
+
+@media (max-width: 360px) {
+	.services { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+	.service-card { min-height: 218px; padding: 8px; }
+	.service-art { width: 74px; height: 74px; }
+}
+
+/* V0.2.2 reference-layout refinement: compact x-navigation hierarchy with Innovation glass materials. */
+@media (max-width: 720px) {
+	.services { gap: 8px; }
+	.service-card {
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-start;
+		min-height: clamp(198px, 52vw, 220px);
+		padding: 10px;
+		border: 0;
+		border-radius: 16px;
+		background:
+			radial-gradient(circle at 12% 0%, color-mix(in oklch, var(--accent) 26%, transparent), transparent 42%),
+			radial-gradient(circle at 100% 100%, color-mix(in oklch, var(--accent) 14%, transparent), transparent 48%),
+			color-mix(in oklch, var(--glass-deep) 86%, transparent);
+		box-shadow: 0 0 0 1px color-mix(in oklch, var(--glass-edge) 72%, transparent), inset 0 1px 0 color-mix(in oklch, var(--glass-refract) 45%, transparent), inset 0 -1px 0 color-mix(in oklch, var(--accent) 18%, transparent);
+		backdrop-filter: blur(20px) saturate(145%);
+		-webkit-backdrop-filter: blur(20px) saturate(145%);
+	}
+	.service-card::before {
+		background: linear-gradient(128deg, color-mix(in oklch, var(--glass-refract) 42%, transparent), transparent 26%, transparent 68%, color-mix(in oklch, var(--accent) 26%, transparent));
+		opacity: 0.58;
+	}
+	.service-card::after {
+		inset: 1px;
+		border-radius: 15px;
+		background: linear-gradient(180deg, color-mix(in oklch, var(--glass-refract) 20%, transparent), transparent 34%);
+		opacity: 0.62;
+	}
+	.service-badge,
+	.service-status {
+		position: absolute;
+		top: 10px;
+		grid-row: auto;
+		min-height: 24px;
+		font-size: 9px;
+	}
+	.service-badge {
+		left: 10px;
+		max-width: 52%;
+		padding-inline: 8px;
+	}
+	.service-status {
+		right: 10px;
+		max-width: 44%;
+		padding-inline: 8px;
+	}
+	.service-art {
+		position: absolute;
+		top: 38px;
+		inset-inline: 0;
+		grid-row: auto;
+		justify-self: auto;
+		align-self: auto;
+		width: clamp(72px, 23vw, 98px);
+		height: clamp(72px, 23vw, 98px);
+		margin-inline: auto;
+		transform: none;
+	}
+	.service-copy {
+		position: relative;
+		grid-row: auto;
+		align-self: flex-end;
+		width: 100%;
+		padding: 0 42px 0 2px;
+		text-align: left;
+	}
+	.service-copy strong {
+		display: -webkit-box;
+		font-size: clamp(15px, 4.7vw, 20px);
+		line-height: 1.08;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+	}
+	.service-arrow {
+		right: 12px;
+		bottom: 12px;
+		display: grid;
+		width: 36px;
+		height: 36px;
+		font-size: 28px;
+	}
+	.service-card:hover,
+	.service-card:focus-visible,
+	.service-card.is-key-focused { transform: translateY(-1px); }
+	.service-card:active { transform: scale(0.96); }
+	.service-card:active .service-art,
+	.service-card:hover .service-art,
+	.service-card:focus-visible .service-art,
+	.service-card.is-key-focused .service-art { transform: none; filter: none; }
+}
+
+@media (max-width: 360px) {
+	.service-card { min-height: 192px; padding: 8px; }
+	.service-art { top: 36px; width: 70px; height: 70px; }
+	.service-copy { padding-right: 38px; }
+	.service-copy strong { font-size: 14px; }
+	.service-arrow { right: 9px; bottom: 9px; width: 32px; height: 32px; }
+}
