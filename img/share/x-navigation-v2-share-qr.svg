@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">XACDURO-Navigation 分享二维码</title>
+  <desc id="desc">扫描二维码访问 XACDURO-Navigation 粤桂湘大区数字化内部工具导航页</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#020711"/>
+      <stop offset="0.5" stop-color="#071c36"/>
+      <stop offset="1" stop-color="#10082a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#ffffff"/>
+      <stop offset="0.48" stop-color="#8ebcff"/>
+      <stop offset="1" stop-color="#8b62ff"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="40%" r="65%">
+      <stop stop-color="#2274bd" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#06101f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="22" stdDeviation="28" flood-color="#00030c" flood-opacity="0.68"/>
+    </filter>
+    <clipPath id="faviconClip"><rect x="500" y="91" width="200" height="200" rx="46"/></clipPath>
+  </defs>
+
+  <rect width="1200" height="1500" fill="url(#bg)"/>
+  <rect width="1200" height="1500" fill="url(#halo)"/>
+
+  <g fill="none" stroke="url(#accent)" stroke-linecap="round">
+    <rect x="42" y="42" width="1116" height="1416" rx="44" stroke-opacity="0.46" stroke-width="2"/>
+    <path d="M74 184V84h100M1026 84h100v100M1126 1316v100h-100M174 1416H74v-100" stroke-width="7"/>
+  </g>
+  <path d="M86 448h1028M86 1390h1028" stroke="#6cbfff" stroke-opacity="0.18"/>
+  <circle cx="116" cy="220" r="4" fill="#8ebcff" opacity="0.8"/>
+  <circle cx="1088" cy="268" r="6" fill="#8b62ff" opacity="0.7"/>
+  <circle cx="1060" cy="1318" r="4" fill="#8ebcff" opacity="0.8"/>
+
+  <rect x="482" y="73" width="236" height="236" rx="60" fill="#071a32" stroke="url(#accent)" stroke-width="4" filter="url(#shadow)"/>
+  <image href="../tools/xacduro-tools-logo.webp" x="500" y="91" width="200" height="200" preserveAspectRatio="xMidYMid slice" clip-path="url(#faviconClip)"/>
+
+  <g text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif">
+    <text x="600" y="394" fill="url(#accent)" font-size="66" font-weight="700">XACDURO-Navigation</text>
+    <text x="600" y="438" fill="#c6ddff" font-size="28" font-weight="500">粤桂湘大区数字化内部工具导航页</text>
+  </g>
+  <rect x="505" y="474" width="190" height="7" rx="4" fill="url(#accent)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="154" y="532" width="892" height="792" rx="46" fill="#ffffff"/>
+    <rect x="182" y="560" width="836" height="736" rx="30" fill="#f8fcff" stroke="#b9d9ff" stroke-width="3"/>
+    <image href="x-navigation-v2-page-qr.png" x="230" y="608" width="740" height="740" preserveAspectRatio="xMidYMid meet"/>
+  </g>
+  <g text-anchor="middle" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif">
+    <text x="600" y="1392" fill="#e8f3ff" font-size="26" font-weight="700" letter-spacing="4">SCAN TO ENTER</text>
+    <text x="600" y="1432" fill="#98bce8" font-size="22">x-navigation.clover0805.top</text>
+  </g>
+</svg>
